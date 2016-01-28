@@ -1,0 +1,14 @@
+Division of Labour: 3AO4 Project SRS
+
+Nick
+Section 2: Overall Description (6 subsections)
+Genevieve
+Section 3: Functional Requirements (? subsections)
+Eric
+Section 4: Non-Functional Requirements (7 subsections)
+Niko
+Section 3: Functional Requirements (? subsections)
+Sydney
+Section 1: Introduction (5 subsections)
+
+The section on functional requirements should be discussed between Genevieve and Niko and once you guys decide on the list, just split it in half or whatever you see fit.
