@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.10)  1 FEB 2016 11:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.10)  1 FEB 2016 11:28
 entering extended mode
 **./OverallDescription.tex
 (OverallDescription.tex
@@ -275,7 +275,7 @@ Here is how much of TeX's memory you used:
  5056 multiletter control sequences out of 15000+200000
  7895 words of font info for 28 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 27i,6n,19p,368b,191s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,6n,19p,369b,191s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Nick/AppData/Local/
 Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Nick/Ap
 pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/U
@@ -284,7 +284,7 @@ sers/Nick/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr1
 nts/cm/cmr12.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmr17.pfb><C:/Users/Nick/AppData/Local/Programs/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on OverallDescription.pdf (3 pages, 128153 bytes).
+Output written on OverallDescription.pdf (3 pages, 128138 bytes).
 PDF statistics:
  37 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
