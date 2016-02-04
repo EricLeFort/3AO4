@@ -1,0 +1,74 @@
+\documentclass[titlepage]{article}
+\usepackage[left=15mm,right=15mm,top=1in,bottom=1in]{geometry}
+\begin{document}
+\title{Stone Identification App \\
+	Software Requirements Specification}
+\author{Genevieve Okon (Okong), Sydney Lieng(),\\
+	Niko Savas(), Nick Lago(lagond),\\
+	Eric Le Fort(leforte)}
+\date{\today}
+\maketitle
+
+\section{Functional Requirements}
+\subsection {Business Event: User wants to identify a rock}
+	\subsubsection {Viewpoint: Everyday User}
+		\begin{itemize}
+			\item The application will allow the user to input information about texture, colour, or size of a rock.
+			\item The application will estimate the type of rock based on user-inputted texture, colour, and/or size.
+			\item The application will suggest rocks based on the user's location.
+		\end{itemize}
+	\subsubsection {Viewpoint: Developer}
+	\subsubsection {Viewpoint: Security Expert}
+\subsection {Business Event: User wants to update the database}
+	\subsubsection {Viewpoint: Everyday User}
+		\begin{itemize}
+			\item The every day user will not be able to modify the database.
+		\end{itemize}
+	\subsubsection {Viewpoint: Developer}
+		\begin{itemize}
+			\item The developer will be able to update the database with new information
+		\end{itemize}
+	\subsubsection {Viewpoint: Security Expert}
+		\begin{itemize}
+			\item The security expert must be able to manage developer access to the database
+		\end{itemize}
+
+\subsection{Application identifies cost per weight }
+\subsubsection{Application}
+\begin{itemize}
+
+  \item The application shall show the cost of the rock according to the weight of the rock. 
+  \item The application shall show the cost per gram of the rock.
+  \end{itemize}
+  \subsubsection{Everyday user}
+  \begin{itemize}
+  \item The user shall be able to enter the weight of the rock found in the application.
+  \item The users shall be provided with possible places to sell rocks found.
+  
+\end{itemize}
+
+\subsection{Application displays image}
+\subsubsection{Application}
+\begin{itemize}
+\item The application shall display images of possible matches for rocks according to user input.
+\end{itemize}
+  \subsubsection{Everyday user}
+  \begin{itemize}
+  \item The user shall be able to view the image of final rock match found.
+\end{itemize}
+
+
+\subsection{User searches for rock name}
+\subsubsection{Application}
+\begin{itemize}
+
+  \item The application shall search for rock name according to the categories the user chooses.
+  \item The application shall eliminate non possible rocks as the user specifies more about rock found. 
+  \item The application shall be able to access the database to find possible rock information. 
+  \end{itemize}
+    \subsubsection{Everyday user}
+  \begin{itemize}
+  \item The user shall be able to view name, location and properties of rock match found. 
+\end{itemize}
+
+\end{document}
