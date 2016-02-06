@@ -13,7 +13,7 @@
 \subsection {Business Event: User wants to identify a rock}
 	\subsubsection {Viewpoint: Everyday User}
 		\begin{itemize}
-			\item The application will allow the user to input information about texture, colour, or size of a rock.
+			\item The application will allow the user to input information about texture, colour, and/or size of a rock.
 			\item The application will estimate the type of rock based on user-inputted texture, colour, and/or size.
 			\item The application will suggest rocks based on the user's location.
 		\end{itemize}
@@ -35,13 +35,16 @@
 \subsection {Business Event: User wants to save a rock they've found}
 	\subsubsection {Viewpoint: Everyday User}
 		\begin{itemize}
-			\item The user will be able to add a rock from their matched list to a \"Found Rocks\" list.
+			\item The user will be able to add a rock from their matched list to a ``Found Rocks" list.
 		\end{itemize}
 	\subsubsection {Viewpoint: Developer}
 		\begin{itemize}
 			\item The developer will not be able to access an individual user's found rock list.
 		\end{itemize}
 	\subsubsection {Viewpoint: Security Expert}
+		\begin{itemize}
+			\item The security expert shall ensure that only the user can see their own rock list.
+		\end{itemize}
 \subsection{Application identifies cost per weight }
 \subsubsection{Application}
 \begin{itemize}
@@ -49,7 +52,7 @@
   \item The application shall show the cost of the rock according to the weight of the rock. 
   \item The application shall show the cost per gram of the rock.
   \end{itemize}
-  \subsubsection{Everyday user}
+  \subsubsection{Everyday User}
   \begin{itemize}
   \item The user shall be able to enter the weight of the rock found in the application.
   \item The users shall be provided with possible places to sell rocks found.
@@ -61,9 +64,9 @@
 \begin{itemize}
 \item The application shall display images of possible matches for rocks according to user input.
 \end{itemize}
-  \subsubsection{Everyday user}
+  \subsubsection{Everyday User}
   \begin{itemize}
-  \item The user shall be able to view the image of final rock match found.
+  \item The user shall be able to view the image of the final rock match found.
 \end{itemize}
 
 
@@ -71,11 +74,11 @@
 \subsubsection{Application}
 \begin{itemize}
 
-  \item The application shall search for rock name according to the categories the user chooses.
-  \item The application shall eliminate non possible rocks as the user specifies more about rock found. 
-  \item The application shall be able to access the database to find possible rock information. 
+  \item The application shall search for the name of the rock according to the categories the user chooses.
+  \item The application shall eliminate rocks that do not match the criteria as the user specifies more about the rock found. 
+  \item The application shall be able to access the database to find information about the possible rock. 
   \end{itemize}
-    \subsubsection{Everyday user}
+    \subsubsection{Everyday User}
   \begin{itemize}
   \item The user shall be able to view name, location and properties of rock match found. 
 \end{itemize}
