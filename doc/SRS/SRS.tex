@@ -182,7 +182,7 @@ The following section will outline the various non-functional requirements that 
 \subsection{Look \& Feel Requirements}
 These requirements dictate how the final product will appear to the user. The overall goal will be to make the app's look \& feel in a way that promotes simple and efficient use by the average user.
 \subsubsection{Appearance Requirements}
-\textbf{Ap1:} The program shall use appealing colour schemes determined by the designers.\\
+\textbf{Ap1:} The program shall use colour schemes appealing to the expected users determined by the designers.\\
 
 \noindent\textbf{Ap2:} The program's appearance shall be designed in a way that it does not distract from usage of the system.\\
 
@@ -195,15 +195,15 @@ These requirements dictate how the final product will appear to the user. The ov
 \subsubsection{Ease of Use Requirements}
 \textbf{EOF1:} The program shall be usable by any user between the ages of 8 and 90 with basic knowledge of how apps function.
 \subsubsection{Personalization \& Internalization Requirements}
-\textbf{PI1:} The program shall keep a record of all rocks discovered by the user.
+\textbf{PI1:} The program shall allow the user to choose whether they would like to use location services.
 \subsubsection{Learning Requirements}
-\textbf{Le1:} The user shall need to know what the basic qualifying characteristics of rocks mean and how to check for them.
+\textbf{Le1:} The user shall require training in order to understand usage of basic qualifying characteristics of rocks.
 \subsubsection{Understandability \& Politeness Requirements}
-\textbf{UP1:} The program shall be able to be used by any people as defined in the requirement EOF1 without any prior training
+\textbf{UP1:} The program shall only assume prior knowledge of the basics of how to use an app and simple defining characteristics of rocks. Functions that require knowledge other than this will not be included.\\
+
+\noindent\textbf{UP2:} The program shall include information in \textit{Layman's Terms} to support the more technical information.
 \subsubsection{Accessibility Requirements}
 \textbf{Ac1:} The program shall utilize the largest text possible while maintaining it's aesthetic appeal.\\
-
-\noindent\textbf{Ac2:} The program shall include information in \textit{Layman's Terms} to support the more technical information.
 
 \subsection{Performance Requirements}
 \subsubsection{Speed \& Latency Requirements}
@@ -217,17 +217,15 @@ N/A
 
 \noindent\textbf{PA2:} The program shall display the correct rock that matches the descriptors (assuming small mistakes by user being possible) 80\% of the time.
 \subsubsection{Reliability and Availability Requirements}
-\textbf{RA1:} This system is available on the user's machine and does not rely on other factors to function. This program should be available 100\% of the time.\\
+\textbf{RA1:} This system is available on the user's machine and does not rely on other factors to function. This program should be available 99\% of the time.\\
 
-\noindent\textbf{RA2:} The program shall \textit{crash} no more than once per hour of accumulated runtime.
+\noindent\textbf{RA2:} The program shall \textit{crash} no more than an average of once per hour of runtime.
 \subsubsection{Robustness or Fault-Tolerance Requirements}
 \textbf{RFT1:} The program shall be designed in a way that faulty inputs are not possible to select.
 \subsubsection{Capacity Requirements}
-\textbf{CR1:} The program is designed to work independently on a single piece of hardware. If the program operates as stated in the other requirements on one device, this requirement will be satisfied.
+No requirements necessary from this section since the program will run independently on each piece of hardware it is running on. So the maximum capacity is only 1.
 \subsubsection{Scalability or Extensibility Requirements}
-\textbf{SE1:} The program shall store only the past 100 rocks found by the user.\\
-
-\noindent\textbf{SE2:} The program shall be designed in a way that adding new rocks to the database is possible after deployment without major changes.
+\textbf{SE2:} The program shall be designed in a way that adding new rocks to the database is possible after deployment without major changes.
 \subsubsection{Longevity Requirements}
 \textbf{Lo1:} The product shall be designed in a modular way so as to allow future anticipated change.
 
@@ -243,7 +241,7 @@ N/A
 
 \subsection{Maintainability \& Support Requirements}
 \subsubsection{Maintenance Requirements}
-\textbf{MS1:} The product shall store its data in such a way that it will only require deleting the last lines of the data file to restore to a previous state as necessary.
+\textbf{MS1:} The product shall store its data in such a way that it will be able to restore to a previous state as necessary.
 \subsubsection{Supportability Requirements}
 \textbf{Su1:} The program shall follow a modular design pattern. No more than 10\% of modules will be so rigid they can only operate in the exact implementation of the current system.
 \subsubsection{Adaptability Requirements}
@@ -269,7 +267,7 @@ N/A
 \subsubsection{Cultural Requirements}
 \textbf{Cu1:} This program shall not include any symbols, statements or anything of that nature that may be found offensive to anyone's culture.
 \subsubsection{Political Requirements}
-\textbf{Po2:} This program shall not include any symbols, statements or anything of that nature that display any sort of political stance.
+\textbf{Po1:} This program shall not include any symbols, statements or anything of that nature that are offensive in any region in a political sense.
 
 \subsection{Legal Requirements}
 \subsubsection{Compliance Requirements}
@@ -303,4 +301,3 @@ Sydney Lieng& Introduction&   \\
 % End Section
 
 \end{document}
-%------------------------------------------------------------------------------
