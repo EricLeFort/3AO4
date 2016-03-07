@@ -16,9 +16,9 @@
 \end{titlepage}
 \tableofcontents
 \newpage
+
+
 \section{Introduction}
-\label{sec:introduction}
-% Begin Section
 \subsection{Purpose}
 The following Software Requirements Specification (SRS) document will provide an overview of the behaviour of the Stone Identification App that will be developed. This document will include a full description of the application and will outline the functional and non-functional requirements that the system needs to fulfill. To gain a thorough understanding of this application, this SRS is geared towards those who are interested in developing and funding this application. It will give them insight to what the software will do and how it will be expected to perform.
 \subsection{Scope}
@@ -35,10 +35,6 @@ SE 3A04: Requirements Templates\\
 \subsection{Overview}
 The remaining SRS document will include the overall description, functional requirements, and non-functional requirements. It will provide a description of the general factors that affect the product and its requirements in the Overall Description section. The Functional Requirements section will contain all the software requirements to a level of detail. The last section, Non-Functional Requirements, will outline the how the system is supposed to be, such as the look and feel, usability and humanity, performance, etc. 
 
-%%%
-
-% Begin SubSection
-
 
 \section{Overall Description}
 The following section will outline the factors that affect our product and its requirements.\\
@@ -49,130 +45,106 @@ There is no larger system that will be interacting with our application.\\
 
 \subsubsection{Product Functions}
 \begin{itemize}
-
-\item If the user finds a rock, the application will display a list of all possible rocks for a match \\
-\item Each rock possibility is accompanied by a picture, a description and an approximate value\\
-\item The application will display a set of questions as a form that the user can answer to refine the selection of possible rocks\\
-\item Once a match has been found, the customer has the option to save rock information to their \"rocks found\" list.\\
-\item Customers will be able to remove rocks from their collection\\
-
-
-
+	\item If the user finds a rock, the application will display a list of all possible rocks for a match \\
+	\item Each rock possibility is accompanied by a picture, a description and an approximate value\\
+	\item The application will display a set of questions as a form that the user can answer to refine the selection of possible rocks\\
+	\item Once a match has been found, the customer has the option to save rock information to their \"rocks found\" list.\\
+	\item Customers will be able to remove rocks from their collection\\
 \end{itemize}
 
 \subsubsection{User Characteristics}
 
 User restrictions may include:\\
 \begin{itemize}
-
-\item No educational restrictions during the identification process, as the use of pictures make this very intuitive\\
-\item Some descriptions, and questions about rocks may require a slight knowledge of geology \\
-\item Previous experience with phone applications is an asset when using this product\\
-\item No technical expertise needed, however users may take some time at first to learn all the features\\
-
+	\item No educational restrictions during the identification process, as the use of pictures make this very intuitive\\
+	\item Some descriptions, and questions about rocks may require a slight knowledge of geology \\
+	\item Previous experience with phone applications is an asset when using this product\\
+	\item No technical expertise needed, however users may take some time at first to learn all the features\\
 \end{itemize}
-
 
 \includegraphics{../resources/Interaction.png}
 
 \subsubsection{Constraints}
-
 \begin{itemize}
-\item Possible matches are limited to database space\\
+	\item Possible matches are limited to storage space\\
 \end{itemize}
-
 
 \subsubsection{Assumptions and Dependencies}
-
 \begin{itemize}
-\item Users have enough space on mobile device to hold the app\\
-\item User has enabled GPS function in phone\\
-\item Device with application is an android phone\\
+	\item User has enabled GPS function in phone\\
+	\item Device with application is an android phone\\
 \end{itemize}
-
 
 \subsubsection{Apportioning of Requirements}
-
 Some requirements that may be delayed until future versions:
-
 \begin{itemize}
-\item Interacting with other users rock collections, such as viewing, and requesting to purchase \\
-\item Messaging system between collectors \\
+	\item Interacting with other users rock collections, such as viewing, and requesting to purchase \\
+	\item Messaging system between collectors \\
 \end{itemize}
+
+
 \section{Functional Requirements}
-\label{sec:functional_requirements}
 \subsection {Business Event: User wants to identify a rock}
-	\subsubsection {Viewpoint: Everyday User}
-		\begin{itemize}
-			\item The application will allow the user to input information about texture, colour, and/or size of a rock.
-			\item The application will estimate the type of rock based on user-inputted texture, colour, and/or size.
-			\item The application will suggest rocks based on the user's location.
-		\end{itemize}
-	\subsubsection {Viewpoint: Developer}
-	\subsubsection {Viewpoint: Security Expert}
-\subsection {Business Event: User wants to update the database}
-	\subsubsection {Viewpoint: Everyday User}
-		\begin{itemize}
-			\item The every day user will not be able to modify the database.
-		\end{itemize}
-	\subsubsection {Viewpoint: Developer}
-		\begin{itemize}
-			\item The developer will be able to update the database with new information
-		\end{itemize}
-	\subsubsection {Viewpoint: Security Expert}
-		\begin{itemize}
-			\item The security expert must be able to manage developer access to the database
-		\end{itemize}
+  \subsubsection {Viewpoint: Everyday User}
+    \begin{itemize}
+      \item The application will allow the user to input information about texture, colour, or size of a rock.
+      \item The application will estimate the type of rock based on user-inputted texture, colour, and/or size.
+      \item The application will suggest rocks based on the user's location.
+    \end{itemize}
+  \subsubsection {Viewpoint: Developer}
+  \subsubsection {Viewpoint: Security Expert}
+\subsection {Business Event: User wants to update the data store}
+  \subsubsection {Viewpoint: Everyday User}
+    \begin{itemize}
+      \item The every day user will not be able to modify the data store.
+    \end{itemize}
+  \subsubsection {Viewpoint: Developer}
+    \begin{itemize}
+      \item The developer will be able to update the data store with new information
+    \end{itemize}
+  \subsubsection {Viewpoint: Security Expert}
+    \begin{itemize}
+      \item The security expert must be able to manage developer access to the data store
+    \end{itemize}
 \subsection {Business Event: User wants to save a rock they've found}
-	\subsubsection {Viewpoint: Everyday User}
-		\begin{itemize}
-			\item The user will be able to add a rock from their matched list to a ``Found Rocks" list.
-		\end{itemize}
-	\subsubsection {Viewpoint: Developer}
-		\begin{itemize}
-			\item The developer will not be able to access an individual user's found rock list.
-		\end{itemize}
-	\subsubsection {Viewpoint: Security Expert}
-		\begin{itemize}
-			\item The security expert shall ensure that only the user can see their own rock list.
-		\end{itemize}
-\subsection{Business Event: Application identifies cost per weight }
-\subsubsection{Viewpoint: Application}
-\begin{itemize}
-
-  \item The application shall show the cost of the rock according to the weight of the rock. 
-  \item The application shall show the cost per gram of the rock.
-  \end{itemize}
+  \subsubsection {Viewpoint: Everyday User}
+    \begin{itemize}
+      \item The user will be able to add a rock from their matched list to a \"Found Rocks\" list.
+    \end{itemize}
+  \subsubsection {Viewpoint: Developer}
+    \begin{itemize}
+      \item The developer will not be able to access an individual user's found rock list.
+    \end{itemize}
+  \subsubsection {Viewpoint: Security Expert}
+\subsection{Business Event: User wants to identify a rock}
+  \subsubsection {Viewpoint: Everyday User}
+    \begin{itemize}
+      \item The application will be able to recieve user input based on the available experts
+      \item The application will display possible matches based on user input
+      \item The application will allow experts to dictate which rocks from the data store are displayed
+      \item The application will display the image of all rocks matching the user input
+    \end{itemize}
+  \subsubsection {Viewpoint: Developer}
+    \begin{itemize}
+      \item The developer will not be able to view user specific searches
+    \end{itemize}
+  \subsubsection {Viewpoint: Security Expert}
+\subsection{Business Event: User wants to learn more about a rock}
   \subsubsection{Viewpoint: Everyday User}
-  \begin{itemize}
-  \item The user shall be able to enter the weight of the rock found in the application.
-  \item The users shall be provided with possible places to sell rocks found.
-  
-\end{itemize}
-
-\subsection{Business Event: Application displays image}
-\subsubsection{Viewpoint: Application}
-\begin{itemize}
-\item The application shall display images of possible matches for rocks according to user input.
-\end{itemize}
-  \subsubsection{Viewpoint: Everyday User}
-  \begin{itemize}
-  \item The user shall be able to view the image of the final rock match found.
-\end{itemize}
-
-
-\subsection{Business Event: User searches for rock name}
-\subsubsection{Viewpoint: Application}
-\begin{itemize}
-
-  \item The application shall search for the name of the rock according to the categories the user chooses.
-  \item The application shall eliminate rocks that do not match the criteria as the user specifies more about the rock found. 
-  \item The application shall be able to access the database to find information about the possible rock. 
-  \end{itemize}
-    \subsubsection{Viewpoint: Everyday User}
-  \begin{itemize}
-  \item The user shall be able to view name, location and properties of rock match found. 
-\end{itemize}
+    \begin{itemize}
+      \item The user will be able to view information about the rock including Colour, Size, Texture (Depends upon available experts)
+      \item The user will be able to view an image of the rock
+      \item The user will not be able to modify information about a rock
+    \end{itemize}
+  \subsubsection{Viewpoint: Developer}
+    \begin{itemize}
+      \item The developer cannot access user rock searches
+      \item The developer can add and remove experts
+    \end{itemize}
+  \subsubsection{Viewpoint: Security Expert}
+    \begin{itemize}
+      \item The security expert must be able to manage developer access to the experts
+    \end{itemize}
 
 
 \section{Non-Functional Requirements}
@@ -279,25 +251,16 @@ N/A
 \appendix
 \newpage
 \section{Division of Labour}
-\label{sec:division_of_labour}
-% Begin Section
 \begin{center}
-\begin{tabular}{ | p{6cm} | p{6cm}| p{4cm} | } 
-\hline
+\begin{tabular}{ | p{6cm} | p{6cm}| p{4cm} | } \hline
 Name& Contribution & Signature\\ 
 \hline
-Genevieve Okon & Functional Requirements & \\ 
-\hline
-Eric Le Fort& Non-Functional Requirements&  \\ 
-\hline
-Nick Lago& Overall Description  &   \\ 
-\hline
-Niko Savas& Functional Requirements&   \\ 
-\hline
-Sydney Lieng& Introduction&   \\ 
-\hline
+Genevieve Okon 	& Functional Requirements 		&	\\  \hline
+Eric Le Fort		& Non-Functional Requirements	& 	\\  \hline
+Nick Lago			& Overall Description  			&	\\  \hline
+Niko Savas		& Functional Requirements		&	\\  \hline
+Sydney Lieng		& Introduction					&	\\  \hline
 \end{tabular}
 \end{center}
-% End Section
 
 \end{document}
