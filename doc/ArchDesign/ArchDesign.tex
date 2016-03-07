@@ -99,7 +99,7 @@ The following diagram illustrates the proposed architecture for this system:\\
 \section{Class Responsibility Collaboration (CRC) Cards}
 This section should contain all of your CRC cards.
 
-\begin{table}[!ht]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{| p{8cm} | c |} \hline
 		\multicolumn{2}{|l|}{\textbf{Class Name: Controller}} \\ \hline
@@ -113,51 +113,35 @@ This section should contain all of your CRC cards.
 	\end{tabular}
 \end{table}
 
-\begin{table}[!ht]
+\begin{table}[!htb]
 	\centering
-	\begin{tabular}{| p{8cm} | c |} \hline
-		\multicolumn{2}{|l|}{\textbf{Class Name: UserPassword}} \\ \hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
-		Update password & Controller\\ \hline
-		Keep user's password encrypted and secure & \\ \hline
-		Send success/failure in login to Controller & \\ \hline						
-	\end{tabular}
-\end{table}
-
-\begin{table}[!ht]
-	\centering
-	\begin{tabular}{| p{6.6cm} | c |} \hline
-		\multicolumn{2}{|l|}{\textbf{Class Name: EnterCommand}} \\ \hline
+	\begin{tabular}{| p{6.6cm} | c |} \hline 
+		\multicolumn{2}{|l|}{\textbf{Class Name: User Interface}} \\ \hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
 		Allow user to login/logout & Controller, UserPassword\\ \hline
 		Allow user to enter information for different rock qualities & \\ \hline
 		Allow user to request to view rock history & Controller\\ \hline
 		Send information about rock search to Controller & \\ \hline
-	\end{tabular}
-\end{table}
-
-\begin{table}[!ht]
-	\centering
-	\begin{tabular}{| p{8cm} | c |} \hline 
-		\multicolumn{2}{|l|}{\textbf{Class Name: OutputInfo}} \\ \hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
 		Show visual of all requested information & Controller\\ \hline
 		Receive and parse information from Controller & \\ \hline
 	\end{tabular}
 \end{table}
 
-\begin{table}[!ht]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{| p{8cm} | c |} \hline 
-		\multicolumn{2}{|l|}{\textbf{Class Name: RockHistory}} \\ \hline
+		\multicolumn{2}{|l|}{\textbf{Class Name: User Database}} \\ \hline
 		\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+		Update password & Controller\\ \hline
+		Keep user's password encrypted and secure & \\ \hline
+		Send success/failure in login to Controller & \\ \hline	
 		Handle all found rock history requests & \\ \hline
 		Send/receive requests to/from Controller & \\ \hline
 	\end{tabular}
 \end{table}
 \pagebreak
 
-\begin{table}[!ht]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{| p{8cm} | c |} \hline 
 		\multicolumn{2}{|l|}{\textbf{Class Name: Forum}} \\ \hline
