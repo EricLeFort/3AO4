@@ -1,5 +1,5 @@
-Nick		- Introduction
-Niko		- Use Case Diagram
-Genevieve	- Analysis Class Diagram
-Eric		- Architectural Design
-Sydney		- CRC Cards
+Genevieve	- Introduction
+Nick		- State Charts
+Niko		- Sequence Diagrams
+Sydney		- Sequence Diagrams
+Eric		- Detailed Class Diagram
