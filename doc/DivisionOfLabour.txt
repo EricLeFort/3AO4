@@ -1,5 +1,5 @@
-Genevieve	- Introduction
-Nick		- State Charts
-Niko		- Sequence Diagrams
-Sydney		- Sequence Diagrams
-Eric		- Detailed Class Diagram
+Genevieve	- Experts
+Nick		- Encryption
+Niko		- UI/Android Interfacing
+Sydney		- Data gathering and population
+Eric		- Supervise and assist, responsible for final meshing of code
