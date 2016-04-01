@@ -18,10 +18,32 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
+        android:id="@+id/hardness_select"
+        android:layout_marginTop="36dp"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/colour_select"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="33dp" />
+        android:layout_below="@+id/hardness_select"
+        android:layout_alignParentLeft="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/texture_select"
+        android:layout_below="@+id/colour_select"
+        android:layout_alignParentLeft="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/size_select"
+        android:layout_below="@+id/texture_select"
+        android:layout_alignParentLeft="true" />
 
 </RelativeLayout>
