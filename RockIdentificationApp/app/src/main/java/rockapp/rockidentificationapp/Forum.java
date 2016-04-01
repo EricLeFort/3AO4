@@ -1,4 +1,4 @@
-package tools;
+package rockapp.rockidentificationapp;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -14,7 +14,7 @@ public class Forum{
 	 * include the whole array since there is nothing to compare to.
 	 * @param array - The original array to compare to.
 	 */
-	public CommonElementsList(Rock[] array){
+	public void CommonElementsList(Rock[] array){
 		common = new ArrayList<Rock>();
 		common.addAll(Arrays.asList(array));
 	}//Constructor

@@ -1,4 +1,4 @@
-package tools;
+package rockapp.rockidentificationapp;
 
 /**
  * @author Eric Le Fort
