@@ -29,6 +29,7 @@ public class Main extends AppCompatActivity {
         connectSpinner(sizeSelect, R.id.size_select, R.array.size_array);
     }
 
+    //Sync up the string resource, dropdown in the xml, and this class
     private void connectSpinner(Spinner spinner, int viewId, int stringResourceId) {
         spinner = (Spinner) findViewById(viewId);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, stringResourceId, android.R.layout.simple_spinner_item);

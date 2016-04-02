@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Rock Identification App</string>
+    <string name="title_activity_history">History</string>
 </resources>
