@@ -16,6 +16,12 @@ public class Controller {
         return i;
     }
 
+    public static Intent requestSearch(Context from){
+        Intent i = new Intent(from, RockMatches.class);
+        //TODO Get the data from the forum?
+        return i;
+    }
+
 
     private void swapActivity(){
     }

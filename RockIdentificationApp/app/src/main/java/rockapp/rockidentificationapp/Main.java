@@ -44,4 +44,9 @@ public class Main extends AppCompatActivity {
         Intent i = Controller.requestHistory(this);
         startActivity(i);
     }
+
+    public void findRockClicked(View view){
+        Intent i = Controller.requestSearch(this);
+        startActivity(i);
+    }
 }
