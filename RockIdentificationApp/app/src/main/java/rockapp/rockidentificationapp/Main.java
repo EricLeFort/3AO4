@@ -1,7 +1,9 @@
 package rockapp.rockidentificationapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -35,5 +37,11 @@ public class Main extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, stringResourceId, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+    }
+
+    public void historyClicked(View view){
+        //Necessary workaround (startActivity not able to be called from Controller)
+        Intent i = Controller.requestHistory(this);
+        startActivity(i);
     }
 }
