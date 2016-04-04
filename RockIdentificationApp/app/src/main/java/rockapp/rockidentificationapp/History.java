@@ -17,4 +17,12 @@ public class History extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
+    private void displayHistory(){
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            //TODO this needs to be able to pull the history data from somewhere
+            //Rock r = extras.get("HISTORY_DATA");
+        }
+    }
+
 }

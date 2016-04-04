@@ -10,6 +10,9 @@ public class Controller {
 
     public static Intent requestHistory(Context from) {
         Intent i = new Intent(from, History.class);
+        //User Database.queryData() -->
+        //queryResults <--
+        //i.putExtra("HISTORY_DATA", queryResults);
         return i;
     }
 
