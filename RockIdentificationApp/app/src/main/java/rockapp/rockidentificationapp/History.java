@@ -26,6 +26,7 @@ public class History extends AppCompatActivity {
 
     private void displayHistory(ArrayList<Rock> listOfRocks){
         System.out.println("# of rocks: " + listOfRocks.size());
+        //TODO display the rocks in the window
     }
 
 }

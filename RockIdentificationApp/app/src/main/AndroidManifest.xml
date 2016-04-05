@@ -19,7 +19,7 @@
             android:name=".History"
             android:label="@string/title_activity_history"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RockMatches"></activity>
+        <activity android:name=".RockMatches" />
     </application>
 
 </manifest>

@@ -25,7 +25,12 @@ public class Controller {
 
     public static Intent requestSearch(Context from){
         Intent i = new Intent(from, RockMatches.class);
-        //TODO Get the data from the forum?
+        //TODO pull this from the forum?
+        ArrayList<Rock> queryResults = new ArrayList<Rock>();
+        queryResults.add(new Rock("Some Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
+        Bundle dataBundle = new Bundle();
+        dataBundle.putSerializable("MATCHED_ROCKS", queryResults);
+        i.putExtras(dataBundle);
         return i;
     }
 
