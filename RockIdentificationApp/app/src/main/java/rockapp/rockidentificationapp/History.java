@@ -1,11 +1,14 @@
 package rockapp.rockidentificationapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import java.util.ArrayList;
 
 public class History extends AppCompatActivity {
 
@@ -15,14 +18,14 @@ public class History extends AppCompatActivity {
         setContentView(R.layout.activity_history);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //Pull data sent from intent
+        ArrayList<Rock> listOfRocks = (ArrayList<Rock>) this.getIntent().getExtras().getSerializable("HISTORY_DATA");//TODO error handling
+        displayHistory(listOfRocks);
     }
 
-    private void displayHistory(){
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            //TODO this needs to be able to pull the history data from somewhere
-            //Rock r = extras.get("HISTORY_DATA");
-        }
+    private void displayHistory(ArrayList<Rock> listOfRocks){
+        System.out.println("# of rocks: " + listOfRocks.size());
     }
 
 }

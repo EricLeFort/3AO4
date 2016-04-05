@@ -4,7 +4,7 @@ package rockapp.rockidentificationapp;
  * @author Eric Le Fort
  * @version 1.0
  */
-public class Rock{
+public class Rock implements java.io.Serializable {
 	private String name;
 	private Colour colour;
 	private Hardness hardness;

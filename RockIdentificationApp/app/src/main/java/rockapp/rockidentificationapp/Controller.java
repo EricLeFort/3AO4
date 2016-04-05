@@ -2,6 +2,9 @@ package rockapp.rockidentificationapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+
+import java.util.ArrayList;
 
 /**
  * Created by Niko on 4/1/2016. (booya)
@@ -12,7 +15,11 @@ public class Controller {
         Intent i = new Intent(from, History.class);
         //User Database.queryData() -->
         //queryResults <--
-        //i.putExtra("HISTORY_DATA", queryResults);
+        ArrayList<Rock> queryResults = new ArrayList<Rock>();
+        queryResults.add(new Rock("Some Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
+        Bundle dataBundle = new Bundle();
+        dataBundle.putSerializable("HISTORY_DATA", queryResults);
+        i.putExtras(dataBundle);
         return i;
     }
 
