@@ -8,6 +8,12 @@ import java.util.ArrayList;
 
 /**
  * Created by Niko on 4/1/2016. (booya)
+ *
+ * Implementation Notes:
+ *
+ * Intents are meant to be used to directly jump between activities in Android. By using blackboard architecture, we require
+ * the use of a controller through which most commands travel. To combine these two methodologies, an activity will call a method on the controller
+ * to acquire an Intent (Transition between pages), which will then be run by the original activity. Running the intent will trigger another page opening.
  */
 public class Controller {
 
