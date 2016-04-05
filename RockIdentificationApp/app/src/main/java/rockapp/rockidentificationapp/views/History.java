@@ -7,13 +7,17 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
 import rockapp.rockidentificationapp.R;
 import rockapp.rockidentificationapp.Rock;
+import rockapp.rockidentificationapp.RockList;
 
 public class History extends AppCompatActivity {
+
+    private ListView rockList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +32,10 @@ public class History extends AppCompatActivity {
     }
 
     private void displayHistory(ArrayList<Rock> listOfRocks){
-        System.out.println("# of rocks: " + listOfRocks.size());
-        //TODO display the rocks in the window
+        RockList adapter = new RockList(this,listOfRocks);
+
+        rockList = (ListView) findViewById(R.id.rock_list);
+        rockList.setAdapter(adapter);
     }
 
 }

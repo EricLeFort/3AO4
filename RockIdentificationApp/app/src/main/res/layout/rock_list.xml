@@ -11,12 +11,14 @@
         <TextView
             android:id="@+id/rock_name"
             android:layout_width="wrap_content"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp" />
 
         <TextView
             android:id="@+id/rock_description"
             android:layout_width="wrap_content"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp" />
 
     </TableRow>
 </TableLayout>

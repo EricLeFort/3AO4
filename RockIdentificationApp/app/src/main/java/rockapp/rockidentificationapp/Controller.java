@@ -26,10 +26,12 @@ public class Controller {
 
     public static Intent requestHistory(Context from) {
         Intent i = new Intent(from, History.class);
+        //TODO Database Query
         //User Database.queryData() -->
         //queryResults <--
         ArrayList<Rock> queryResults = new ArrayList<Rock>();
-        queryResults.add(new Rock("Some Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
+        queryResults.add(new Rock("History Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
+        queryResults.add(new Rock("History Rock 2", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
         Bundle dataBundle = new Bundle();
         dataBundle.putSerializable("HISTORY_DATA", queryResults);
         i.putExtras(dataBundle);
@@ -41,7 +43,8 @@ public class Controller {
         //TODO pull this from the forum?
         //Would also likely grab GPS location here
         ArrayList<Rock> queryResults = new ArrayList<Rock>();
-        queryResults.add(new Rock("Some Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
+        queryResults.add(new Rock("Search Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
+        queryResults.add(new Rock("Search Rock 2", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
         Bundle dataBundle = new Bundle();
         dataBundle.putSerializable("MATCHED_ROCKS", queryResults);
         i.putExtras(dataBundle);

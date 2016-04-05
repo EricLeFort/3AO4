@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,13 +14,13 @@ import java.util.ArrayList;
  *
  * Custom ListView to display a list of rocks (used in both history and searches)
  */
-public class RockList extends ArrayAdapter<String> {
+public class RockList extends ArrayAdapter<Rock> {
     private final Activity context;
-    private final Rock[] rockMembers;
+    private final ArrayList<Rock> rockMembers;
 
     public RockList(Activity context,
-                      Rock[] rocks) {
-        super(context, R.layout.list_single);
+                      ArrayList<Rock> rocks) {
+        super(context, R.layout.rock_list, rocks);
         this.context = context;
         rockMembers = rocks;
     }
@@ -29,11 +28,11 @@ public class RockList extends ArrayAdapter<String> {
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView= inflater.inflate(R.layout.list_single, null, true);
+        View rowView= inflater.inflate(R.layout.rock_list, null, true);
 
-        Rock rock = rockMembers[position];
+        Rock rock = rockMembers.get(position);
 
-        //Build the single item view
+        //Fill each individual list view with the information from Rock rock.
         TextView rockTitle = (TextView) rowView.findViewById(R.id.rock_name);
         rockTitle.setText(rock.toString());
 

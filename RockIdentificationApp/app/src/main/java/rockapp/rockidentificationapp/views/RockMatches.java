@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import rockapp.rockidentificationapp.R;
 import rockapp.rockidentificationapp.Rock;
+import rockapp.rockidentificationapp.RockList;
 
 public class RockMatches extends AppCompatActivity {
 
@@ -25,13 +26,10 @@ public class RockMatches extends AppCompatActivity {
     }
 
     private void displayResults(ArrayList<Rock> matchedRocks) {
+        //Create the RockList (populate it with matchedRocks)
+        RockList adapter = new RockList(this,matchedRocks);
+
         rockList = (ListView) findViewById(R.id.rock_list);
-        //For now, just display the names of the rocks
-        ArrayList<String> stringlist = new ArrayList<String>();
-        for(int i=0;i<matchedRocks.size();i++){
-            stringlist.add(matchedRocks.get(i).toString());
-        }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,stringlist);
-        rockList.setAdapter(arrayAdapter);
+        rockList.setAdapter(adapter);
     }
 }

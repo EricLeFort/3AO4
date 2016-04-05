@@ -12,12 +12,9 @@
     tools:context=".views.History"
     tools:showIn="@layout/activity_history">
 
-    <TextView
+    <ListView
+        android:id="@+id/rock_list"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="History Shiz here"
-        android:id="@+id/textView2"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_height="wrap_content" >
+    </ListView>
 </RelativeLayout>
