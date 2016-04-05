@@ -1,8 +1,13 @@
 package rockapp.rockidentificationapp;
 
+import android.os.Bundle;
+
+import com.google.android.gms.maps.model.LatLng;
+
+
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.location.*;
 
 import java.util.ArrayList;
 
@@ -51,6 +56,18 @@ public class Controller {
         Intent i = new Intent(from, RockMatches.class);
         //TODO pull this from the forum?
         //Would also likely grab GPS location here
+        try {
+            LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
+            Criteria criteria = new Criteria();
+            String provider = service.getBestProvider(criteria, false);
+            Location location = service.getLastKnownLocation(provider);
+            LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
+            new AlertDialog.Builder(context)    //TODO delete this alert once we are sure we can get location information.
+                    .setTitle("Location Info")
+                    .setMessage("Lat: " + userLocation.latitude + "Lon: " + userLocation.longitude)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }catch(SecurityException se){ //User did not give permission to access location. }
         ArrayList<Rock> queryResults = new ArrayList<Rock>();
         queryResults.add(new Rock("Search Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
         queryResults.add(new Rock("Search Rock 2", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
