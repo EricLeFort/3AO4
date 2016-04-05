@@ -29,7 +29,7 @@ public class Controller {
         return i;
     }
 
-    public static Intent requestSearch(Context from){
+    public static Intent requestSearch(Context from, Hardness hardness, Colour colour, Texture texture, Size size){
         Intent i = new Intent(from, RockMatches.class);
         //TODO pull this from the forum?
         ArrayList<Rock> queryResults = new ArrayList<Rock>();
@@ -38,9 +38,5 @@ public class Controller {
         dataBundle.putSerializable("MATCHED_ROCKS", queryResults);
         i.putExtras(dataBundle);
         return i;
-    }
-
-
-    private void swapActivity(){
     }
 }

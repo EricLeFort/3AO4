@@ -46,7 +46,13 @@ public class Main extends AppCompatActivity {
     }
 
     public void findRockClicked(View view){
-        Intent i = Controller.requestSearch(this);
+        //Get data values from spinners - We need to subtract one because the first item is a placeholder
+        Hardness hardness = Hardness.values()[hardnessSelect.getSelectedItemPosition()];
+        Colour colour = Colour.values()[colourSelect.getSelectedItemPosition()];
+        Texture texture = Texture.values()[textureSelect.getSelectedItemPosition()];
+        Size size = Size.values()[sizeSelect.getSelectedItemPosition()];
+
+        Intent i = Controller.requestSearch(this, hardness, colour, texture, size);
         startActivity(i);
     }
 }
