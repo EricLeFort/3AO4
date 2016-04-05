@@ -16,7 +16,7 @@ import rockapp.rockidentificationapp.Rock;
 import rockapp.rockidentificationapp.RockList;
 
 //Displays a user's saved rock collection.
-//Expect incoming intents to include ArrayList<Rock> under key "HISTORY_DATA"
+//Expect incoming intents to include ArrayList<Rock> under key "ROCK_LIST"
 public class History extends AppCompatActivity {
 
     private ListView rockList;
@@ -29,10 +29,11 @@ public class History extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Pull data sent from intent
-        ArrayList<Rock> listOfRocks = (ArrayList<Rock>) this.getIntent().getExtras().getSerializable("HISTORY_DATA");//TODO error handling
+        ArrayList<Rock> listOfRocks = (ArrayList<Rock>) this.getIntent().getExtras().getSerializable("ROCK_LIST");//TODO error handling
         displayHistory(listOfRocks);
     }
 
+    //Show the list of rocks
     private void displayHistory(ArrayList<Rock> listOfRocks){
         RockList adapter = new RockList(this,listOfRocks);
 

@@ -16,11 +16,16 @@ import rockapp.rockidentificationapp.views.RockMatches;
 /**
  * Created by Niko on 4/1/2016. (booya)
  *
- * Implementation Notes:
+ * Implementation Notes for group members:
  *
  * Intents are meant to be used to directly jump between activities in Android. By using blackboard architecture, we require
  * the use of a controller through which most commands travel. To combine these two methodologies, an activity will call a method on the controller
  * to acquire an Intent (Transition between pages), which will then be run by the original activity. Running the intent will trigger another page opening.
+ *
+ * 1. Page calls Controller function with any necessary parameters
+ * 2. Controller prepares any data required by the soon-to-open page (e.g. sending requests to DB, Experts/Forum, etc.)
+ * 3. Controller packages the data gathered in (2) in a bundle that is then packaged into an Intent
+ * 4. The Intent is sent back to Page, where it is then executed.
  */
 public class Controller {
 
@@ -35,7 +40,7 @@ public class Controller {
         queryResults.add(new Rock("History Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
         queryResults.add(new Rock("History Rock 2", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
         Bundle dataBundle = new Bundle();
-        dataBundle.putSerializable("HISTORY_DATA", queryResults);
+        dataBundle.putSerializable("ROCK_LIST", queryResults);
         i.putExtras(dataBundle);
         return i;
     }
@@ -50,7 +55,7 @@ public class Controller {
         queryResults.add(new Rock("Search Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
         queryResults.add(new Rock("Search Rock 2", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
         Bundle dataBundle = new Bundle();
-        dataBundle.putSerializable("MATCHED_ROCKS", queryResults);
+        dataBundle.putSerializable("ROCK_LIST", queryResults);
         i.putExtras(dataBundle);
         return i;
     }

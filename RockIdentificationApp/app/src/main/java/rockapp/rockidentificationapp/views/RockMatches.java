@@ -15,7 +15,7 @@ import rockapp.rockidentificationapp.Rock;
 import rockapp.rockidentificationapp.RockList;
 
 //Display the results of a rock search.
-//Expect the incoming intent to include an ArrayList<Rock> under the key "MATCHED_ROCKS"
+//Expect the incoming intent to include an ArrayList<Rock> under the key "ROCK_LIST"
 public class RockMatches extends AppCompatActivity {
 
     private ListView rockList;
@@ -26,7 +26,7 @@ public class RockMatches extends AppCompatActivity {
         setContentView(R.layout.activity_rock_matches_view);
 
         //Pull data sent from intent
-        ArrayList<Rock> listOfRocks = (ArrayList<Rock>) this.getIntent().getExtras().getSerializable("MATCHED_ROCKS");//TODO error handling
+        ArrayList<Rock> listOfRocks = (ArrayList<Rock>) this.getIntent().getExtras().getSerializable("ROCK_LIST");//TODO error handling
         displayResults(listOfRocks);
     }
 

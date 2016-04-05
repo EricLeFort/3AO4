@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Created by Niko on 4/5/2016.
  *
- * Custom ListView to display a list of rocks (used in both history and searches)
+ * Custom ListView to display a list of rocks (used in both history and searches). For styling, see rock_list.xml
  */
 public class RockList extends ArrayAdapter<Rock> {
     private final Activity context;
