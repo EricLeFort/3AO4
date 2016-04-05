@@ -1,4 +1,4 @@
-package rockapp.rockidentificationapp;
+package rockapp.rockidentificationapp.views;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Spinner;
+
+import rockapp.rockidentificationapp.Controller;
+import rockapp.rockidentificationapp.R;
+import rockapp.rockidentificationapp.enums.Colour;
+import rockapp.rockidentificationapp.enums.Hardness;
+import rockapp.rockidentificationapp.enums.Size;
+import rockapp.rockidentificationapp.enums.Texture;
 
 public class Main extends AppCompatActivity {
 
@@ -53,6 +60,7 @@ public class Main extends AppCompatActivity {
         Texture texture = Texture.values()[textureSelect.getSelectedItemPosition()];
         Size size = Size.values()[sizeSelect.getSelectedItemPosition()];
 
+        //Call controller function with the inputted hardness, colour, texture, size, etc.
         Intent i = Controller.requestSearch(this, hardness, colour, texture, size);
         startActivity(i);
     }

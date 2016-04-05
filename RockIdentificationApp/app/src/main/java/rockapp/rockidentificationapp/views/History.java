@@ -1,4 +1,4 @@
-package rockapp.rockidentificationapp;
+package rockapp.rockidentificationapp.views;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import java.util.ArrayList;
+
+import rockapp.rockidentificationapp.R;
+import rockapp.rockidentificationapp.Rock;
 
 public class History extends AppCompatActivity {
 

@@ -1,5 +1,10 @@
 package rockapp.rockidentificationapp;
 
+import rockapp.rockidentificationapp.enums.Colour;
+import rockapp.rockidentificationapp.enums.Hardness;
+import rockapp.rockidentificationapp.enums.Size;
+import rockapp.rockidentificationapp.enums.Texture;
+
 /**
  * @author Eric Le Fort
  * @version 1.0

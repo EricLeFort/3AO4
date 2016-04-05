@@ -1,4 +1,4 @@
-package rockapp.rockidentificationapp;
+package rockapp.rockidentificationapp.enums;
 
 /**
  * @author Eric Le Fort

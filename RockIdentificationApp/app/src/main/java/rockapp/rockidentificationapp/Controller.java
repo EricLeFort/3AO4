@@ -6,6 +6,13 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
+import rockapp.rockidentificationapp.enums.Colour;
+import rockapp.rockidentificationapp.enums.Hardness;
+import rockapp.rockidentificationapp.enums.Size;
+import rockapp.rockidentificationapp.enums.Texture;
+import rockapp.rockidentificationapp.views.History;
+import rockapp.rockidentificationapp.views.RockMatches;
+
 /**
  * Created by Niko on 4/1/2016. (booya)
  *
@@ -32,6 +39,7 @@ public class Controller {
     public static Intent requestSearch(Context from, Hardness hardness, Colour colour, Texture texture, Size size){
         Intent i = new Intent(from, RockMatches.class);
         //TODO pull this from the forum?
+        //Would also likely grab GPS location here
         ArrayList<Rock> queryResults = new ArrayList<Rock>();
         queryResults.add(new Rock("Some Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
         Bundle dataBundle = new Bundle();
