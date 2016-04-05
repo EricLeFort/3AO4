@@ -24,6 +24,8 @@ import rockapp.rockidentificationapp.views.RockMatches;
  */
 public class Controller {
 
+    //Calling this returns an intent pointing to the history activity.
+    //The intent will be populated by a list of rocks saved by the user
     public static Intent requestHistory(Context from) {
         Intent i = new Intent(from, History.class);
         //TODO Database Query
@@ -38,6 +40,8 @@ public class Controller {
         return i;
     }
 
+    //Calling this returns an intent pointing to the rock matches activity
+    //The intent will be populated by a list of rocks returned by the forum
     public static Intent requestSearch(Context from, Hardness hardness, Colour colour, Texture texture, Size size){
         Intent i = new Intent(from, RockMatches.class);
         //TODO pull this from the forum?

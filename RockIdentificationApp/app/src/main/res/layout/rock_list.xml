@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    <TableRow>
-        <ImageView
-            android:id="@+id/img"
-            android:layout_width="50dp"
-            android:layout_height="50dp"/>
-
+    <ImageView
+        android:id="@+id/img"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/image_border"
+        android:layout_width="wrap_content"
+        android:minWidth="50dp" />
         <TextView
             android:id="@+id/rock_name"
+            android:text="Rock Name"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp" />
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/img"
+            android:layout_toEndOf="@+id/img"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp" />
 
         <TextView
             android:id="@+id/rock_description"
+            android:text="Rock Description"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp" />
-
-    </TableRow>
-</TableLayout>
+            android:layout_height="20dp"
+            android:layout_below="@+id/rock_name"
+            android:layout_alignLeft="@+id/rock_name"
+            android:layout_alignStart="@+id/rock_name" />
+</RelativeLayout>

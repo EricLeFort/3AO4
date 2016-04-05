@@ -16,6 +16,7 @@ import rockapp.rockidentificationapp.enums.Hardness;
 import rockapp.rockidentificationapp.enums.Size;
 import rockapp.rockidentificationapp.enums.Texture;
 
+//Starting page. Searches can be made from here
 public class Main extends AppCompatActivity {
 
     private Spinner hardnessSelect;

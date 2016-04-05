@@ -15,6 +15,8 @@ import rockapp.rockidentificationapp.R;
 import rockapp.rockidentificationapp.Rock;
 import rockapp.rockidentificationapp.RockList;
 
+//Displays a user's saved rock collection.
+//Expect incoming intents to include ArrayList<Rock> under key "HISTORY_DATA"
 public class History extends AppCompatActivity {
 
     private ListView rockList;
