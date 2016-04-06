@@ -4,7 +4,7 @@
         <item>Hardness</item>
         <item>Soft (Mohs' 1-3)</item>
         <item>Medium (Mohs' 4-7)</item>
-        <item>Hard (Mohs' 8-1-)</item>
+        <item>Hard (Mohs' 8-10)</item>
     </string-array>
     <string-array name="colour_array">
         <item>Colour</item>
@@ -29,7 +29,7 @@
         <item>Very Coarse (> 3cm)</item>
         <item>Coarse (5mm-3cm)</item>
         <item>Medium (1-5mm)</item>
-        <item>Fine (< 1mm)</item>
-        <item>GLass (No Grains Present)</item>
+        <item>Fine (under 1mm)</item>
+        <item>Glass (No Grains Present)</item>
     </string-array>
 </resources>

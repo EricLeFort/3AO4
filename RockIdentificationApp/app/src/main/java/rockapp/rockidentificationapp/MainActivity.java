@@ -22,7 +22,7 @@ import java.util.Arrays;
         ArrayList<String> list;
         //String listString;
         //TextView newtext;
-    
+
         //@Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
