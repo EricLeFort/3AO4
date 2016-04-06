@@ -12,7 +12,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-    /**
+    import rockapp.rockidentificationapp.enums.Colour;
+    import rockapp.rockidentificationapp.enums.Hardness;
+    import rockapp.rockidentificationapp.enums.Size;
+    import rockapp.rockidentificationapp.enums.Texture;
+
+/**
      * Created by
      */
     public class DatabaseHelper extends SQLiteOpenHelper{
@@ -213,21 +218,34 @@ import android.database.sqlite.SQLiteOpenHelper;
             contentValues.put(COL_10, radius);
 
             long result = db.insert(TABLE_NAME,null,contentValues);
-            if(result==-1)
-                return false;
-            else
-                return true;
-
+            return result != -1;
         }
 
 
 
-        public Cursor queryData(String[] columns, String SQLquery) {
+        public Rock[] queryData(String SQLquery) {
+            Rock[] results;
             SQLiteDatabase db=this.getWritableDatabase();
             //query(String table, String[] columns, String selection, String[]selectionArgs, String groupBy, String having, String orderBy)
-            Cursor cursor = db.query(TABLE_NAME, columns, SQLquery, null, null, null, null);
+            Cursor cursor = db.query(TABLE_NAME, null, SQLquery, null, null, null, null);
+            results = new Rock[cursor.getCount()];
+            cursor.moveToFirst();
+            for (int i = 0; i < results.length; i++) {
+                results[i] = new Rock(
+                        cursor.getString(0),
+                        Double.valueOf(cursor.getString(1)),
+                        Colour.valueOf(cursor.getString(2)),
+                        Hardness.valueOf(cursor.getString(3)),
+                        Size.valueOf(cursor.getString(4)),
+                        Texture.valueOf(cursor.getString(5)),
+                        Double.valueOf(cursor.getString(6)),
+                        Double.valueOf(cursor.getString(7)),
+                        Double.valueOf(cursor.getString(8))
+                );
+                cursor.moveToNext();
+            }
+            return results;
             //Cursor cursor = db.rawQuery("SELECT NAME FROM  WHERE NAME LIKE '%" +  + "%'", null);
-            return cursor;
         }
     }
 

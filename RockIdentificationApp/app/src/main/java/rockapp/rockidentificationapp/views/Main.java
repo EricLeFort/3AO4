@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 
 import rockapp.rockidentificationapp.Controller;
+import rockapp.rockidentificationapp.DatabaseHelper;
 import rockapp.rockidentificationapp.R;
 import rockapp.rockidentificationapp.enums.Colour;
 import rockapp.rockidentificationapp.enums.Hardness;
@@ -21,6 +22,7 @@ import rockapp.rockidentificationapp.enums.Texture;
 public class Main extends AppCompatActivity {
 
     private Controller controller;
+    private DatabaseHelper dbhelper;
     private Spinner hardnessSelect;
     private Spinner colourSelect;
     private Spinner textureSelect;
@@ -34,7 +36,7 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        controller = new Controller();
+        controller = new Controller(this);
 
         //Connect private members
         hardnessSelect = connectSpinner(R.id.hardness_select, R.array.hardness_array);

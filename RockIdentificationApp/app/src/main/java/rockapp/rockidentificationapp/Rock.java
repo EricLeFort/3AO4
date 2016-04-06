@@ -11,19 +11,17 @@ import rockapp.rockidentificationapp.enums.Texture;
  */
 public class Rock implements java.io.Serializable {
 	private String name;
+	private double value;
 	private Colour colour;
 	private Hardness hardness;
 	private Size size;
 	private Texture texture;
 	private double lat, lon, radius;
 	
-	public static void main(String[] args){
-		new Rock("", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP, 1, 2, 3).toString();
-	}
-	
 	/**
 	 * Creates a new <code>Rock</code> using the following provided information.
 	 * @param name - The name of this rock.
+	 * @param value - The monetary value of this rock in USD per gram.
 	 * @param colour - The usual colour of this rock.
 	 * @param hardness - The average hardness of rocks of this type.
 	 * @param size - The average size of rocks of this type.
@@ -33,8 +31,9 @@ public class Rock implements java.io.Serializable {
 	 * @param radius - The radius around the central latitude/longitude coordinates where this
 	 * rock is commonly found in kilometers.
 	 */
-	public Rock(String name, Colour colour, Hardness hardness, Size size, Texture texture, double lat, double lon, double radius){
+	public Rock(String name, Double value, Colour colour, Hardness hardness, Size size, Texture texture, double lat, double lon, double radius){
 		this.name = name;
+		this.value = value;
 		this.colour = colour;
 		this.hardness = hardness;
 		this.size = size;
@@ -48,13 +47,15 @@ public class Rock implements java.io.Serializable {
 	 * Creates a new <code>Rock</code> using the following provided information. Sets the latitude and longitude to be
 	 * <code>Long.MAX_VALUE</code> and the radius to be 0.
 	 * @param name - The name of this rock.
+	 * @param value - The monetary value of this rock in USD per gram.
 	 * @param colour - The usual colour of this rock.
 	 * @param hardness - The average hardness of rocks of this type.
 	 * @param size - The average size of rocks of this type.
 	 * @param texture - The usual texture of rocks of this type.
 	 */
-	public Rock(String name, Colour colour, Hardness hardness, Size size, Texture texture){
+	public Rock(String name, Double value, Colour colour, Hardness hardness, Size size, Texture texture){
 		this.name = name;
+		this.value = value;
 		this.colour = colour;
 		this.hardness = hardness;
 		this.size = size;
@@ -71,7 +72,13 @@ public class Rock implements java.io.Serializable {
 	 */
 	@Override
 	public String toString(){ return name; }//toString()
-	
+
+	/**
+	 * Returns the value of this <code>Rock</code>.
+	 * @return The value of this <code>Rock</code>.
+	 */
+	public double getValue(){ return value; }//getValue()
+
 	/**
 	 * Returns the colour of this <code>Rock</code>.
 	 * @return The colour of this <code>Rock</code>.

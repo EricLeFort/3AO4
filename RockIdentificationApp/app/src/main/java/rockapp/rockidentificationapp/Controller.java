@@ -36,6 +36,11 @@ import rockapp.rockidentificationapp.views.RockMatches;
  */
 public class Controller{
     private Forum forum;
+    private DatabaseHelper dbHelper;
+
+    public Controller(Context context){
+        dbHelper = new DatabaseHelper(context);
+    }
 
     //Calling this returns an intent pointing to the history activity.
     //The intent will be populated by a list of rocks saved by the user
@@ -45,8 +50,8 @@ public class Controller{
         //User Database.queryData() -->
         //queryResults <--
         ArrayList<Rock> queryResults = new ArrayList<Rock>();
-        queryResults.add(new Rock("History Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
-        queryResults.add(new Rock("History Rock 2", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
+        queryResults.add(new Rock("History Rock", 0.00, Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
+        queryResults.add(new Rock("History Rock 2", 0.00, Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
         Bundle dataBundle = new Bundle();
         dataBundle.putSerializable("ROCK_LIST", queryResults);
         i.putExtras(dataBundle);
@@ -59,7 +64,18 @@ public class Controller{
         Intent i = new Intent(from, RockMatches.class);
         ArrayList<Rock> queryResults = new ArrayList<Rock>();
         Bundle dataBundle = new Bundle();
-        //TODO pull this from the forum?
+        forum = null;
+
+        //TODO Check each attribute. If selected, query db, construct Rock array using results,
+        // add those Rocks to Forum or create new Forum if there's not one yet.
+        if(hardness != Hardness.UNKNOWN){
+            //TODO
+            if(forum == null){
+
+            }else{
+
+            }
+        }
 
         //TODO query db for everything but location here.
         if(useLocation) {
@@ -78,8 +94,8 @@ public class Controller{
             }
         }
 
-        queryResults.add(new Rock("Search Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));//TODO remove
-        queryResults.add(new Rock("Search Rock 2", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));//TODO remove
+        queryResults.add(new Rock("Search Rock", 0.00, Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));//TODO remove
+        queryResults.add(new Rock("Search Rock 2", 0.00, Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));//TODO remove
         dataBundle.putSerializable("ROCK_LIST", queryResults);
         i.putExtras(dataBundle);
         return i;
