@@ -74,7 +74,7 @@ public class Controller{
 
         //Adds all rocks matching specified colour.
         if(colour != Colour.UNKNOWN){
-            query = dbHelper.queryData("Colour == '" + colour + "'");
+            query = dbHelper.queryData("Colour LIKE '" + colour + "'");
             if(forum == null){
                 forum = new Forum(query);
             }else{
@@ -84,7 +84,7 @@ public class Controller{
 
         //Adds all rocks matching specified texture.
         if(texture != Texture.UNKNOWN){
-            query = dbHelper.queryData("Texture == '" + texture + "'");
+            query = dbHelper.queryData("Texture LIKE '" + texture + "'");
             if(forum == null){
                 forum = new Forum(query);
             }else{
@@ -94,7 +94,7 @@ public class Controller{
 
         //Adds all rocks matching specified size.
         if(size != Size.UNKNOWN){
-            query = dbHelper.queryData("Size == '" + size + "'");
+            query = dbHelper.queryData("Size LIKE '" + size + "'");
             if(forum == null){
                 forum = new Forum(query);
             }else{

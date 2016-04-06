@@ -34,8 +34,14 @@ public class RockMatches extends AppCompatActivity {
 
     private void displayResults(final ArrayList<Rock> matchedRocks) {
         //Create the RockList (populate it with matchedRocks)
-        ArrayList<Rock> 
-        RockList adapter = new RockList(RockMatches.this,matchedRocks);
+        final ArrayList<Rock> duplicateFreeList = new ArrayList<Rock>();
+
+        for(int i = 0; i < matchedRocks.size(); i++){
+            if(!duplicateFreeList.contains(matchedRocks.get(i))){
+                duplicateFreeList.add(matchedRocks.get(i));
+            }
+        }
+        RockList adapter = new RockList(RockMatches.this,duplicateFreeList);
 
         rockList = (ListView) findViewById(R.id.rock_list);
         rockList.setAdapter(adapter);
@@ -43,7 +49,7 @@ public class RockMatches extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Rock rock = matchedRocks.get(position);
+                Rock rock = duplicateFreeList.get(position);
                 Toast.makeText(RockMatches.this, "Added " + rock.toString() + " to history.", Toast.LENGTH_SHORT).show();
                 //TODO Add this rock to the database of saved rocks
             }

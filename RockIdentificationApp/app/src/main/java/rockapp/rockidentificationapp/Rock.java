@@ -134,7 +134,25 @@ public class Rock implements java.io.Serializable {
 	 * @return The minimum longitude where these rocks are usually found.
 	 */
 	public double minLon(){ return addToDegreeLatLon(lon, -radius); }//minLon()
-	
+
+	/**
+	 * Returns whether this <code>Rock</code> is equivalent to that <code>Object</code>.
+	 * @param obj - The <code>Object</code> to compare this <code>Rock</code> to.
+	 * @return whether this <code>Rock</code> is equivalent to that <code>Object</code>.
+	 */
+	@Override
+	public boolean equals(Object obj){
+		if(obj == null || obj.getClass() != this.getClass()){
+			return false;
+		}
+		Rock that = (Rock)obj;
+		return this.colour == that.colour
+				&& this.size == that.size
+				&& this.hardness == that.hardness
+				&& this.texture == that.texture
+				&& this.name == that.name;
+	}//equals()
+
 	private static double addToDegreeLatLon(double l, double dist){ return l + dist / 111.0; }//addToDegreeLatLon()
-	
+
 }//Rock
