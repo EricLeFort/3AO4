@@ -8,6 +8,8 @@ import com.google.android.gms.maps.model.LatLng;
 import android.content.Context;
 import android.content.Intent;
 import android.location.*;
+import android.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -32,11 +34,12 @@ import rockapp.rockidentificationapp.views.RockMatches;
  * 3. Controller packages the data gathered in (2) in a bundle that is then packaged into an Intent
  * 4. The Intent is sent back to Page, where it is then executed.
  */
-public class Controller {
+public class Controller{
+    private Forum forum;
 
     //Calling this returns an intent pointing to the history activity.
     //The intent will be populated by a list of rocks saved by the user
-    public static Intent requestHistory(Context from) {
+    public Intent requestHistory(Context from) {
         Intent i = new Intent(from, History.class);
         //TODO Database Query
         //User Database.queryData() -->
@@ -52,26 +55,31 @@ public class Controller {
 
     //Calling this returns an intent pointing to the rock matches activity
     //The intent will be populated by a list of rocks returned by the forum
-    public static Intent requestSearch(Context from, Hardness hardness, Colour colour, Texture texture, Size size){
+    public Intent requestSearch(Context from, Hardness hardness, Colour colour, Texture texture, Size size, boolean useLocation){
         Intent i = new Intent(from, RockMatches.class);
-        //TODO pull this from the forum?
-        //Would also likely grab GPS location here
-        try {
-            LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
-            Criteria criteria = new Criteria();
-            String provider = service.getBestProvider(criteria, false);
-            Location location = service.getLastKnownLocation(provider);
-            LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
-            new AlertDialog.Builder(context)    //TODO delete this alert once we are sure we can get location information.
-                    .setTitle("Location Info")
-                    .setMessage("Lat: " + userLocation.latitude + "Lon: " + userLocation.longitude)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .show();
-        }catch(SecurityException se){ //User did not give permission to access location. }
         ArrayList<Rock> queryResults = new ArrayList<Rock>();
-        queryResults.add(new Rock("Search Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
-        queryResults.add(new Rock("Search Rock 2", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
         Bundle dataBundle = new Bundle();
+        //TODO pull this from the forum?
+
+        //TODO query db for everything but location here.
+        if(useLocation) {
+            try{
+                LocationManager service = (LocationManager)from.getSystemService(Context.LOCATION_SERVICE);
+                Criteria criteria = new Criteria();
+                String provider = service.getBestProvider(criteria, false);
+                Location location = service.getLastKnownLocation(provider);
+                LatLng userLocation = new LatLng(location.getLatitude(), location.getLongitude());
+
+                //TODO refine query results using location data
+            } catch (SecurityException se) {
+                /*We were unable to obtain Location Services permission.*/
+            }catch(IllegalArgumentException iae){
+                /*Likely due to not being able to find a provider*/
+            }
+        }
+
+        queryResults.add(new Rock("Search Rock", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));//TODO remove
+        queryResults.add(new Rock("Search Rock 2", Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));//TODO remove
         dataBundle.putSerializable("ROCK_LIST", queryResults);
         i.putExtras(dataBundle);
         return i;

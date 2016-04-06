@@ -1,5 +1,6 @@
 package rockapp.rockidentificationapp.views;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import rockapp.rockidentificationapp.enums.Texture;
 //Starting page. Searches can be made from here
 public class Main extends AppCompatActivity {
 
+    private Controller controller;
     private Spinner hardnessSelect;
     private Spinner colourSelect;
     private Spinner textureSelect;
@@ -32,16 +34,19 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        controller = new Controller();
+
         //Connect private members
-        hardnessSelect = connectSpinner(hardnessSelect, R.id.hardness_select, R.array.hardness_array);
-        colourSelect = connectSpinner(colourSelect, R.id.colour_select, R.array.colour_array);
-        textureSelect = connectSpinner(textureSelect, R.id.texture_select, R.array.texture_array);
-        sizeSelect = connectSpinner(sizeSelect, R.id.size_select, R.array.size_array);
+        hardnessSelect = connectSpinner(R.id.hardness_select, R.array.hardness_array);
+        colourSelect = connectSpinner(R.id.colour_select, R.array.colour_array);
+        textureSelect = connectSpinner(R.id.texture_select, R.array.texture_array);
+        sizeSelect = connectSpinner(R.id.size_select, R.array.size_array);
+        useLocationChkBox = (CheckBox)findViewById(R.id.use_location);
     }
 
     //Sync up the string resource, dropdown in the xml, and this class
-    private Spinner connectSpinner(Spinner spinner, int viewId, int stringResourceId) {
-        spinner = (Spinner) findViewById(viewId);
+    private Spinner connectSpinner(int viewId, int stringResourceId) {
+        Spinner spinner = (Spinner) findViewById(viewId);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, stringResourceId, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
@@ -50,7 +55,7 @@ public class Main extends AppCompatActivity {
 
     public void historyClicked(View view){
         //Necessary workaround (startActivity not able to be called from Controller)
-        Intent i = Controller.requestHistory(this);
+        Intent i = controller.requestHistory(this);
         startActivity(i);
     }
 
@@ -60,9 +65,11 @@ public class Main extends AppCompatActivity {
         Colour colour = Colour.values()[colourSelect.getSelectedItemPosition()];
         Texture texture = Texture.values()[textureSelect.getSelectedItemPosition()];
         Size size = Size.values()[sizeSelect.getSelectedItemPosition()];
+        boolean useLocation = useLocationChkBox.isChecked();
 
         //Call controller function with the inputted hardness, colour, texture, size, etc.
-        Intent i = Controller.requestSearch(this, hardness, colour, texture, size);
+        this.databaseList();
+        Intent i = controller.requestSearch(this, hardness, colour, texture, size, useLocation);
         startActivity(i);
     }
 }
