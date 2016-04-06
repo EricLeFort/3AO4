@@ -7,14 +7,14 @@ import java.util.Arrays;
  * @version 1.0
  */
 public class Forum{
-	ArrayList<Rock> common;
+	private ArrayList<Rock> common;
 	
 	/**
 	 * Initializes a new list using the passed in array to begin with. Common rocks will
 	 * include the whole array since there is nothing to compare to.
 	 * @param array - The original array to compare to.
 	 */
-	public void CommonElementsList(Rock[] array){
+	public Forum(Rock[] array){
 		common = new ArrayList<Rock>();
 		common.addAll(Arrays.asList(array));
 	}//Constructor

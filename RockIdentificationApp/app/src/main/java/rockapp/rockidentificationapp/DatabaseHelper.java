@@ -160,12 +160,12 @@ import android.database.sqlite.SQLiteOpenHelper;
             db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Granite', 0.050,'Medium','White','Rough','Medium', 33, 92, 2835)");
             db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Granite', 0.050,'Medium','Pink','Rough','Medium', 33, 92, 2835)");
             db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Granite', 0.050,'Medium','Orange','Rough','Medium', 33, 92, 2835)");
-            db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Limestone', 0.009,'Soft','Black','Rough','Course', 0, 28, 1889)");
-            db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Limestone', 0.009,'Soft','Brown','Rough','Course', 0, 28, 1889)");
-            db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Limestone', 0.009,'Soft','Grey','Rough','Course', 0, 28, 1889)");
-            db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Limestone', 0.009,'Soft','Green','Rough','Course', 0, 28, 1889)");
-            db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Limestone', 0.009,'Soft','Red','Rough','Course', 0, 28, 1889)");
-            db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Limestone', 0.009,'Soft','White','Rough','Course', 0, 28, 1889)");
+            db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Limestone', 0.009,'Soft','Black','Rough','Coarse', 0, 28, 1889)");
+            db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Limestone', 0.009,'Soft','Brown','Rough','Coarse', 0, 28, 1889)");
+            db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Limestone', 0.009,'Soft','Grey','Rough','Coarse', 0, 28, 1889)");
+            db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Limestone', 0.009,'Soft','Green','Rough','Coarse', 0, 28, 1889)");
+            db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Limestone', 0.009,'Soft','Red','Rough','Coarse', 0, 28, 1889)");
+            db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Limestone', 0.009,'Soft','White','Rough','Coarse', 0, 28, 1889)");
             db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Marble', 0.061,'Soft','White','Smooth','Fine', 33, 92, 2835)");
             db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Marble', 0.061,'Soft','Grey','Smooth','Fine', 33, 92, 2835)");
             db.execSQL("INSERT INTO Rock_table (NAME,VALUE,HARDNESS,COLOUR,TEXTURE,SIZE,LATITUDE,LONGITUDE,RADIUS) VALUES ('Marble', 0.061,'Soft','Pink','Smooth','Fine', 33, 92, 2835)");
@@ -194,7 +194,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("DROP TABLE IF EXISTS"+TABLE_NAME);
+            db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
             onCreate(db);
         }
 
@@ -232,15 +232,15 @@ import android.database.sqlite.SQLiteOpenHelper;
             cursor.moveToFirst();
             for (int i = 0; i < results.length; i++) {
                 results[i] = new Rock(
-                        cursor.getString(0),
-                        Double.valueOf(cursor.getString(1)),
-                        Colour.valueOf(cursor.getString(2)),
-                        Hardness.valueOf(cursor.getString(3)),
-                        Size.valueOf(cursor.getString(4)),
-                        Texture.valueOf(cursor.getString(5)),
-                        Double.valueOf(cursor.getString(6)),
+                        cursor.getString(1),
+                        Double.valueOf(cursor.getString(2)),
+                        Colour.valueOf(cursor.getString(4).toUpperCase()),
+                        Hardness.valueOf(cursor.getString(3).toUpperCase()),
+                        Size.valueOf(cursor.getString(6).toUpperCase()),
+                        Texture.valueOf(cursor.getString(5).toUpperCase()),
                         Double.valueOf(cursor.getString(7)),
-                        Double.valueOf(cursor.getString(8))
+                        Double.valueOf(cursor.getString(8)),
+                        Double.valueOf(cursor.getString(9))
                 );
                 cursor.moveToNext();
             }

@@ -26,12 +26,15 @@ public class RockMatches extends AppCompatActivity {
         setContentView(R.layout.activity_rock_matches_view);
 
         //Pull data sent from intent
-        ArrayList<Rock> listOfRocks = (ArrayList<Rock>) this.getIntent().getExtras().getSerializable("ROCK_LIST");//TODO error handling
-        displayResults(listOfRocks);
+        if(this.getIntent().getExtras() != null){
+            ArrayList<Rock> listOfRocks = (ArrayList<Rock>) this.getIntent().getExtras().getSerializable("ROCK_LIST");//TODO error handling
+            displayResults(listOfRocks);
+        }
     }
 
     private void displayResults(final ArrayList<Rock> matchedRocks) {
         //Create the RockList (populate it with matchedRocks)
+        ArrayList<Rock> 
         RockList adapter = new RockList(RockMatches.this,matchedRocks);
 
         rockList = (ListView) findViewById(R.id.rock_list);

@@ -50,8 +50,8 @@ public class Controller{
         //User Database.queryData() -->
         //queryResults <--
         ArrayList<Rock> queryResults = new ArrayList<Rock>();
-        queryResults.add(new Rock("History Rock", 0.00, Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
-        queryResults.add(new Rock("History Rock 2", 0.00, Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));
+        queryResults.add(new Rock("History Rock", 0.00, Colour.BLUE, Hardness.HARD, Size.COARSE, Texture.GLOSSY));
+        queryResults.add(new Rock("History Rock 2", 0.00, Colour.BLUE, Hardness.HARD, Size.COARSE, Texture.GLOSSY));
         Bundle dataBundle = new Bundle();
         dataBundle.putSerializable("ROCK_LIST", queryResults);
         i.putExtras(dataBundle);
@@ -64,20 +64,45 @@ public class Controller{
         Intent i = new Intent(from, RockMatches.class);
         ArrayList<Rock> queryResults = new ArrayList<Rock>();
         Bundle dataBundle = new Bundle();
+        Rock[] query;
         forum = null;
 
-        //TODO Check each attribute. If selected, query db, construct Rock array using results,
-        // add those Rocks to Forum or create new Forum if there's not one yet.
+        //Adds all rocks matching specified hardness.
         if(hardness != Hardness.UNKNOWN){
-            //TODO
+            forum = new Forum(dbHelper.queryData("Hardness LIKE '" + hardness + "'"));
+        }
+
+        //Adds all rocks matching specified colour.
+        if(colour != Colour.UNKNOWN){
+            query = dbHelper.queryData("Colour == '" + colour + "'");
             if(forum == null){
-
+                forum = new Forum(query);
             }else{
-
+                forum.addList(query);
             }
         }
 
-        //TODO query db for everything but location here.
+        //Adds all rocks matching specified texture.
+        if(texture != Texture.UNKNOWN){
+            query = dbHelper.queryData("Texture == '" + texture + "'");
+            if(forum == null){
+                forum = new Forum(query);
+            }else{
+                forum.addList(query);
+            }
+        }
+
+        //Adds all rocks matching specified size.
+        if(size != Size.UNKNOWN){
+            query = dbHelper.queryData("Size == '" + size + "'");
+            if(forum == null){
+                forum = new Forum(query);
+            }else{
+                forum.addList(query);
+            }
+        }
+
+        //Adds all rocks matching User's current location.
         if(useLocation) {
             try{
                 LocationManager service = (LocationManager)from.getSystemService(Context.LOCATION_SERVICE);
@@ -88,14 +113,26 @@ public class Controller{
 
                 //TODO refine query results using location data
             } catch (SecurityException se) {
-                /*We were unable to obtain Location Services permission.*/
+                new AlertDialog.Builder(from)
+                        .setTitle("Location Services")
+                        .setMessage("Unable to obtain Location Services permission.")
+                        .show();
             }catch(IllegalArgumentException iae){
-                /*Likely due to not being able to find a provider*/
+                new AlertDialog.Builder(from)
+                        .setTitle("Illegal Argument Exception")
+                        .setMessage("Provider is giving issues.")
+                        .show();
             }
         }
 
-        queryResults.add(new Rock("Search Rock", 0.00, Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));//TODO remove
-        queryResults.add(new Rock("Search Rock 2", 0.00, Colour.BLUE_TEMP, Hardness.HARD_TEMP, Size.BIG_TEMP, Texture.BRITTLE_TEMP));//TODO remove
+        //Returns the empty list here to prevent null references.
+        if(forum == null){
+            return i;
+        }
+
+        for(int j = 0; j < forum.getCommonElements().length; j++){
+            queryResults.add(forum.getCommonElements()[j]);
+        }
         dataBundle.putSerializable("ROCK_LIST", queryResults);
         i.putExtras(dataBundle);
         return i;
