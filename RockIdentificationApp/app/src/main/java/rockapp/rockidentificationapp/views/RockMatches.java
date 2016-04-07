@@ -1,5 +1,7 @@
 package rockapp.rockidentificationapp.views;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -50,6 +52,20 @@ public class RockMatches extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Rock rock = duplicateFreeList.get(position);
+                SQLiteDatabase db=this.getWritableDatabase();
+                ContentValues contentValues = new ContentValues();
+                //TODO NICK
+                contentValues.put("NAME", rock.toString());
+                contentValues.put("VALUE", rock.getValue());
+                contentValues.put("HARDNESS", rock.getHardness().toString());
+                contentValues.put("COLOUR", rock.getColour().toString());
+                contentValues.put("TEXTURE", rock.getTexture().toString());
+                contentValues.put("SIZE", rock.getSize().toString());
+                contentValues.put("LATITUDE", rock.getLat());
+                contentValues.put("LONGITUDE", rock.getLon());
+                contentValues.put("RADIUS", rock.getRad());
+
+                long result = db.insert(TABLE_NAME,null,contentValues);
                 Toast.makeText(RockMatches.this, "Added " + rock.toString() + " to history.", Toast.LENGTH_SHORT).show();
                 //TODO Add this rock to the database of saved rocks
             }

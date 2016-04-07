@@ -110,7 +110,25 @@ public class Rock implements java.io.Serializable {
 	public Texture getTexture(){
 		return texture;
 	}//getTexture()
-	
+
+	/**
+	 * Returns the latitude of this <code>Rock</code>.
+	 * @return The latitude of this <code>Rock</code>.
+	 */
+	public double getLat(){ return lat; }//getLat()
+
+	/**
+	 * Returns the longitude of this <code>Rock</code>.
+	 * @return The longitude of this <code>Rock</code>.
+	 */
+	public double getLon(){ return lon; }//getLon()
+
+	/**
+	 * Returns the radius where this <code>Rock</code> is found.
+	 * @return The radius where this <code>Rock</code> is found.
+	 */
+	public double getRad(){ return radius; }//getRad()
+
 	/**
 	 * Returns the maximum latitude where these rocks are usually found.
 	 * @return The maximum latitude where these rocks are usually found.
