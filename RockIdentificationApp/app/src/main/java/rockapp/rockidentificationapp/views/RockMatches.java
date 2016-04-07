@@ -34,7 +34,6 @@ public class RockMatches extends AppCompatActivity {
 
     private void displayResults(final ArrayList<Rock> matchedRocks) {
         //Create the RockList (populate it with matchedRocks)
-        ArrayList<Rock> 
         RockList adapter = new RockList(RockMatches.this,matchedRocks);
 
         rockList = (ListView) findViewById(R.id.rock_list);

@@ -1,10 +1,12 @@
 package rockapp.rockidentificationapp;
 
 import android.app.Activity;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -39,9 +41,9 @@ public class RockList extends ArrayAdapter<Rock> {
         TextView rockDescription = (TextView) rowView.findViewById(R.id.rock_description);
         rockDescription.setText(rock.getHardness().toString());
 
-        //TODO grab image
-        //ImageView imageView = (ImageView) rowView.findViewById(R.id.img);
-        //imageView.setImageResource(imageId[position]);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.img);
+        int imageId = context.getResources().getIdentifier(rock.toString().toLowerCase().replace(' ','_'), "drawable", context.getPackageName());
+        if(imageId != 0) imageView.setImageResource(imageId);
 
         return rowView;
     }

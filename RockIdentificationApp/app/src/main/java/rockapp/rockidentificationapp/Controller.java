@@ -50,8 +50,8 @@ public class Controller{
         //User Database.queryData() -->
         //queryResults <--
         ArrayList<Rock> queryResults = new ArrayList<Rock>();
-        queryResults.add(new Rock("History Rock", 0.00, Colour.BLUE, Hardness.HARD, Size.COARSE, Texture.GLOSSY));
-        queryResults.add(new Rock("History Rock 2", 0.00, Colour.BLUE, Hardness.HARD, Size.COARSE, Texture.GLOSSY));
+        queryResults.add(new Rock("Aplite", 0.00, Colour.BLUE, Hardness.HARD, Size.COARSE, Texture.GLOSSY));
+        queryResults.add(new Rock("Dwayne The Rock Johnson", 0.00, Colour.BLUE, Hardness.HARD, Size.COARSE, Texture.GLOSSY));
         Bundle dataBundle = new Bundle();
         dataBundle.putSerializable("ROCK_LIST", queryResults);
         i.putExtras(dataBundle);
